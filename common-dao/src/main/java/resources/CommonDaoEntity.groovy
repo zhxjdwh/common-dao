@@ -66,7 +66,7 @@ def generate(out, className, fields, table) {
   out.println ""
   out.println ""
   // 引入所需的包
-  out.println "import cn.com.dragonpass.common.dao.core.Entity;"
+  out.println "import cn.com.zhxj.common.dao.core.Entity;"
   out.println "import javax.persistence.*;"
   out.println "import lombok.Data;"
   // 去重后导入列表
