@@ -106,7 +106,16 @@
           dao.updateNotNull(cp,w->w.setId(100)) // update xxx set FD_NAME='xxxxx' where fd_id= 100
           dao.updateNotNullById(cp,100) // update xxx set FD_NAME='xxxxx' where fd_id= 100
           dao.updateNotNullWhere(cp,w->$(w.getId(),eq(),1000)) // update xxx set FD_NAME='xxxxx' where fd_id= 100
-
+ 
+          int row = companyDao.update()
+                     .setIf(StringUtils.isNotBlank(phone),w->{
+                         w.setFd_phone(phone);
+                     })
+                     .whereExpr(w-> $(
+                            $(w.getFd_id(),eq(),100L) ,
+                            and() ,
+                            $(w.getFd_del(),eq(), 1L)
+                     )).execute();
 
          //delete
          dao.delete(w->{
