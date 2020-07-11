@@ -110,7 +110,7 @@ public class RulePriceVipchannel implements Entity {
  @IdUtil
  @InsertTime
  @UpdateTime
- ```
+```
 
 ## 新增
 
@@ -185,7 +185,7 @@ int row = dao.insert(tdCompany);
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_TD_CARBILL")
     @SequenceGenerator(name = "SEQ_TD_CARBILL", sequenceName = "SEQ_TD_CARBILL")
     private Long   fd_id;
-    ```
+```
 
 #### 自增Id
 ```
@@ -210,7 +210,7 @@ Insert的时候，@InsertTime插入数据库的时候实际上是 调用CURRENT_
     @InsertTime
     @Column(name = "FD_CREATETIME")
     private Date   fd_createtime;
-    ```
+```
 
 ## 修改
 

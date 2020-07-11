@@ -196,7 +196,7 @@ public class RulePriceVipchannel implements Entity {
  @IdUtil
  @InsertTime
  @UpdateTime
- ```
+```
 
 ## <a name="12">新增</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
 
@@ -271,7 +271,7 @@ int row = dao.insert(tdCompany);
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_TD_CARBILL")
     @SequenceGenerator(name = "SEQ_TD_CARBILL", sequenceName = "SEQ_TD_CARBILL")
     private Long   fd_id;
-    ```
+```
 
 #### <a name="19">自增Id</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
 ```
@@ -296,7 +296,7 @@ Insert的时候，@InsertTime插入数据库的时候实际上是 调用CURRENT_
     @InsertTime
     @Column(name = "FD_CREATETIME")
     private Date   fd_createtime;
-    ```
+```
 
 ## <a name="22">修改</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
 
