@@ -1,3 +1,128 @@
+## 简介
+一个类型安全，简单高效的数据库访问框架，支持多个数据库 
+不需要xml 
+可以实现单表大部分常用操作，可以搭配mybaits使用
+
+## Spring boot demo
+
+```
+  @SpringBootApplication
+  @EnableCommonDao
+  @EnableTransactionManagement
+  public class SpringBootTestApplication {
+      
+      @Autowired
+      private Dao<TdCompany> dao;
+      
+      public static void main(String[] args) throws ClassNotFoundException {
+          SpringApplication.run(SpringBootTestApplication.class, args);
+      }
+
+     @Bean
+      public SqlDriverHolder sqlDriverHolder(JdbcTemplate jdbcTemplate){
+         return new SqlDriverHolder() {
+           @Override
+           public <T extends Entity> SqlDriver getSqlDriver(EntityDesc<T> entityDesc, SqlCmdType sqlType) {
+              return SqlDriver.getByJdbcTemplate(jdbcTemplate);
+           }
+         };
+      }
+
+       @PostConstruct
+       public void demo()  {
+         //查询demo
+         Paged<TdCompany> page = companyDao.query()
+                 .whereExpr(w -> $(w.getFd_id(), in(), ids)) // where 表达式
+                 .where(w->w.setFd_del(0))  //where
+                 .whereNotBlank("predicate string",w-> $(w.getFd_phone(),isNotNull()))  //只有条件值不为 blank或者null 才会应用 where条件
+                 .whereIdEqual(100L)   //where id = 100
+                 .whereExample(new TdCompany(),ExamplePolicy.EXCLUDE_NULL_EMPTY) // example查询，排除 null/empty值
+                 .whereExampleExclude(new TdCompany(),ExamplePolicy.EXCLUDE_NULL_EMPTY,w->list(w.getFd_del()))  // example查询，排除 null/empty值, 并且不包含指定的字段
+                 .whereMap(w->{
+                     w.put("id",100L);   //字段名需要区分 大小写，跟java字段名一致
+                     w.put("FD_ERPCODE","121"); //表列名不需要区分大小写
+                 })
+                 .orderByAsc(w-> list(w.getFd_id())) //排序
+                 .orderByFields(w->list(w.getFd_del(),w.getFd_erpcode()),false) //排序
+          //     .toList()    //查询列表
+          //     .toList(10) //查询前10行
+          //     .first()     //查询第一行
+          //     .toTuple1(w->tuple(w.getFd_id()))  //查一个字段
+          //     .toTuple2(w->tuple(w.getFd_id(),w.getFd_erpcode())) //查询两个字段
+          //     .toPageCountLess(3,3)  //分页查询，但是不进行count
+          //     .toPageHLLP(3,3)  //分页查询，用 基数算法 估算 行数，仅在海量数据的时候适用，精度差，勿使用
+          //     .toDistinctMap(w->tuple(w.getFd_id(),w.getFd_erpcode()))   // 返回map，第一个字段作为key，第二个字段作为value， select distinct fd_id,fd_erpcode from xxx,
+          //     .top(10)   //查询前10行，  跟 toList(10)  一样
+          //     .count()  //计算行数， select count(*) from xxx
+          //     .sum(w->tuple(w.getFd_id()))  //sum计算， select sum(fd_id) from xxx
+          //     .avg(w->tuple(w.getFd_id()))  //avg计算， select avg(fd_id) from xxx
+          //     .max(w->tuple(w.getFd_id()))  //max计算， select max(fd_id) from xxx
+          //     .min(w->tuple(w.getFd_id()))  //min计算， select min(fd_id) from xxx
+          //     .distinct(w->list(w.getFd_id(),w.getFd_erpcode())) //select distinct fd_id,fd_erpcode from xxx
+          //     .countDistinct(w->list(w.getFd_id(),w.getFd_erpcode())) // select count(distinct fd_id,fd_erpcode) from xxx
+          //     .exists()   //返回bool ，检查是否存在数据
+          //     .select(w->list(w.getFd_id(),w.getFd_del()))    // 只select 两个字段
+          //     .selectExclude(w->list(w.getFd_id()))             // select 的时候排除指定字段
+          //     .toStream()                               // 返回Stream<T> 对象
+          //     .selectOneField(TdCompany::getFd_erpcode)    //只select 一个字段
+          //     .toListForUpdate(10)                          //返回List<Traced<T>> ,用于 update操作, Traced<T> 会跟踪字段的更改
+          //     .firstForUpdate()                             //返回 第一个 Traced<T> 用于update操作
+                 .toPage(3, 3);  //分页查询
+                 
+                 
+           //动态where 表达式 
+          companyDao.query()
+                     .whereExpr(w->{
+                         BinaryExpr where = $(1, eq(), 1); // 
+                         if(areaVo.getId()!=null){
+                             where=$(where,and(),$(w.getId(),eq(),areaVo.getId()));
+                         }
+                         if(areaVo.getNameLike()!=null){
+                             where=$(where,and(),$(w.getName(),like(),"%"+areaVo.getNameLike()+"%"));
+                         }
+                         if(areaVo.getIdIn()!=null){
+                             where=$(where,and(),$(w.getId(),in(),areaVo.getIdIn()));
+                         }
+                         return where;
+                     })
+                     .orderByExpr(w->$(w.getId(),desc(),w.getDel(),asc()))   // order by fd_id desc,fd_del asc
+                     .toPage(areaVo.getPage(),areaVo.getPageSize()); //分页sql    
+                     
+          // insert
+          TdCompany tdCompany = new TdCompany();
+          tdCompany.setFd_phone("xx");
+          tdCompany.setFd_del(0);
+          int row = companyDao.insert(tdCompany);
+          
+          
+          //update
+          dao.updateDynamic(w->w.setStatus(1),w->w.setId(100))   //update xxx set FD_STATUS=1 where FD_ID=100
+          dao.updateDynamicById(w->w.setStatus(1),100)   //update xxx set FD_STATUS=1 where FD_ID=100
+
+          TdCompany cp=new TdCompany();
+          cp.setName("xxxx")
+          cp.setErpCode(null);
+          
+          dao.updateNotNull(cp,w->w.setId(100)) // update xxx set FD_NAME='xxxxx' where fd_id= 100
+          dao.updateNotNullById(cp,100) // update xxx set FD_NAME='xxxxx' where fd_id= 100
+          dao.updateNotNullWhere(cp,w->$(w.getId(),eq(),1000)) // update xxx set FD_NAME='xxxxx' where fd_id= 100
+
+
+         //delete
+         dao.delete(w->{
+           w.setId(100);
+           w.setDel(0);
+         })  // delete from xxx where id=100 and del=0
+         dao.deleteBy(TdCompany::getId,1000)  delete from xxx where id=100
+         dao.deleteById(1000)  delete from xxx where id=100
+         dao.deleteWhere(w->$(w.getId(),eq(),1000))  // delete from xx where id=1000
+                       
+       }
+
+                
+    }             
+```
+
 
 ## 数据库兼容性
 
