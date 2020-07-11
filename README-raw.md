@@ -1,107 +1,21 @@
-<a name="index">**Index**</a>
 
-&emsp;<a href="#0">数据库兼容性</a>  
-&emsp;&emsp;<a href="#1">oracle</a>  
-&emsp;&emsp;<a href="#2">mysql</a>  
-&emsp;&emsp;<a href="#3">其他数据库</a>  
-&emsp;<a href="#4">代码生成器</a>  
-&emsp;&emsp;<a href="#5">实体</a>  
-&emsp;&emsp;<a href="#6">实体代码demo</a>  
-&emsp;&emsp;<a href="#7">实体的继承</a>  
-&emsp;<a href="#8">字段注解</a>  
-&emsp;&emsp;<a href="#9">JPA注解</a>  
-&emsp;&emsp;<a href="#10">Mybait plus注解</a>  
-&emsp;&emsp;<a href="#11">自定义注解</a>  
-&emsp;<a href="#12">新增</a>  
-&emsp;&emsp;<a href="#13">单条insert</a>  
-&emsp;&emsp;&emsp;<a href="#14">Demo</a>  
-&emsp;&emsp;&emsp;<a href="#15">方法重载</a>  
-&emsp;&emsp;<a href="#16">批量insert</a>  
-&emsp;&emsp;<a href="#17">主键生成</a>  
-&emsp;&emsp;&emsp;<a href="#18">Oracle序列</a>  
-&emsp;&emsp;&emsp;<a href="#19">自增Id</a>  
-&emsp;&emsp;&emsp;<a href="#20">IdUtils</a>  
-&emsp;&emsp;<a href="#21">创建时间</a>  
-&emsp;<a href="#22">修改</a>  
-&emsp;&emsp;<a href="#23">普通update</a>  
-&emsp;&emsp;<a href="#24">批量update见</a>  
-&emsp;&emsp;<a href="#25">安全的update</a>  
-&emsp;&emsp;<a href="#26">链式update</a>  
-&emsp;&emsp;<a href="#27">跟踪实体的修改</a>  
-&emsp;&emsp;<a href="#28">更新时间</a>  
-&emsp;&emsp;<a href="#29">部分方法说明</a>  
-&emsp;<a href="#30">删除</a>  
-&emsp;&emsp;<a href="#31">普通删除</a>  
-&emsp;&emsp;<a href="#32">表达式删除</a>  
-&emsp;&emsp;<a href="#33">方法说明</a>  
-&emsp;<a href="#34">自定义注解</a>  
-&emsp;&emsp;<a href="#35">内置注解</a>  
-&emsp;&emsp;&emsp;<a href="#36">@IdUtil</a>  
-&emsp;&emsp;&emsp;<a href="#37">@InsertTime</a>  
-&emsp;&emsp;&emsp;<a href="#38">@UpdateTime</a>  
-&emsp;&emsp;<a href="#39">创建自定义注解</a>  
-&emsp;<a href="#40">查询</a>  
-&emsp;&emsp;<a href="#41">普通查询</a>  
-&emsp;&emsp;<a href="#42">链式查询</a>  
-&emsp;&emsp;<a href="#43">Limit查询</a>  
-&emsp;&emsp;<a href="#44">分页查询</a>  
-&emsp;&emsp;<a href="#45">动态Wehere</a>  
-&emsp;&emsp;<a href="#46">Select</a>  
-&emsp;&emsp;<a href="#47">元组</a>  
-&emsp;&emsp;<a href="#48">Distinct</a>  
-&emsp;&emsp;<a href="#49">聚合函数查询</a>  
-&emsp;&emsp;<a href="#50">子查询</a>  
-&emsp;&emsp;<a href="#51">关于findAll</a>  
-&emsp;&emsp;<a href="#52">关于where的安全性</a>  
-&emsp;<a href="#53">排序</a>  
-&emsp;&emsp;<a href="#54">Asc/Desc排序</a>  
-&emsp;&emsp;<a href="#55">表达式排序</a>  
-&emsp;&emsp;<a href="#56">map排序</a>  
-&emsp;&emsp;<a href="#57">不安全map排序</a>  
-&emsp;<a href="#58">表达式</a>  
-&emsp;&emsp;<a href="#59">一元表达式</a>  
-&emsp;&emsp;<a href="#60">二元表达式</a>  
-&emsp;&emsp;<a href="#61">逻辑表达式</a>  
-&emsp;&emsp;<a href="#62">数学运算符</a>  
-&emsp;&emsp;<a href="#63">聚合函数</a>  
-&emsp;&emsp;<a href="#64">字符串函数</a>  
-&emsp;&emsp;<a href="#65">时间函数</a>  
-&emsp;&emsp;<a href="#66">其他非标准函数</a>  
-&emsp;<a href="#67">表达式alias</a>  
-&emsp;&emsp;<a href="#68">将表达式关联到对象上</a>  
-&emsp;<a href="#69">直接使用表达式对象</a>  
-&emsp;&emsp;<a href="#70">表达式类型</a>  
-&emsp;<a href="#71">适配其他数据库或SQL语法</a>  
-&emsp;&emsp;<a href="#72">基于AnsiSqlVisitor</a>  
-&emsp;&emsp;<a href="#73">基于SqlVisitor</a>  
-&emsp;&emsp;<a href="#74">基于ExprVisitor</a>  
-&emsp;<a href="#75">适配其他映射框架</a>  
-&emsp;&emsp;<a href="#76">适配mybaits-plus注解</a>  
-&emsp;&emsp;<a href="#77">sqlDriverHolder配置spring集成</a>  
-&emsp;&emsp;<a href="#78">读写分离</a>  
-&emsp;&emsp;<a href="#79">多数据源</a>  
-&emsp;<a href="#80">方法说明</a>  
-&emsp;&emsp;<a href="#81">Dao接口</a>  
-&emsp;&emsp;<a href="#82">Queryable接口</a>  
-&emsp;&emsp;<a href="#83">Updatable接口</a>  
+## 数据库兼容性
 
-## <a name="0">数据库兼容性</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
-
-### <a name="1">oracle</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### oracle
 
 支持，支持common-dao的所有能力
 
-### <a name="2">mysql</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### mysql
 
 支持，支持common-dao的所有能力，未充分测试
 
-### <a name="3">其他数据库</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 其他数据库
 
 支持，支持common-dao的部分能力，不支持分页，limit查询
 
-## <a name="4">代码生成器</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+## 代码生成器
 
-### <a name="5">实体</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 实体
 
 使用说明
 
@@ -110,7 +24,7 @@
 3.  选择需要生成的表，生成实体代码
 
 
-### <a name="6">实体代码demo</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 实体代码demo
 
 实体代码应该与表结构一致，尽可能不要再实体类里面添加无关字段和代码
 ```
@@ -166,13 +80,13 @@ public class RulePriceVipchannel implements Entity {
 
 }
 ```
-### <a name="7">实体的继承</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 实体的继承
 
 公用的字段可以放到父类里面，代码生成器不会自动处理继承关系，请生成代码后手工调整，如有需要，自行调整CommonDaoEntity.groovy代码生成器
 
-## <a name="8">字段注解</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+## 字段注解
 
-### <a name="9">JPA注解</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### JPA注解
 ```
  @Table 
  @Id
@@ -181,7 +95,7 @@ public class RulePriceVipchannel implements Entity {
  @GeneratedValue 
  @SequenceGenerator
 ```
-### <a name="10">Mybait plus注解</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### Mybait plus注解
 
 不建议使用
 ```
@@ -191,18 +105,18 @@ public class RulePriceVipchannel implements Entity {
 @TableField
 ```
 
-### <a name="11">自定义注解</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 自定义注解
 ```
  @IdUtil
  @InsertTime
  @UpdateTime
  ```
 
-## <a name="12">新增</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+## 新增
 
-### <a name="13">单条insert</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 单条insert
 
-#### <a name="14">Demo</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+#### Demo
 ```
 Dao<TdCompany> dao=null;
 TdCompany tdCompany = new TdCompany();
@@ -211,7 +125,7 @@ tdCompany.setFd_del(0);
 int row = dao.insert(tdCompany);
 ```
 
-#### <a name="15">方法重载</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+#### 方法重载
 ```
 
    /**
@@ -246,7 +160,7 @@ int row = dao.insert(tdCompany);
 ```
   
 
-### <a name="16">批量insert</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 批量insert
 ```
   /**
      * 批量insert,注意，批量insert不会回填由数据库生成的id
@@ -260,11 +174,11 @@ int row = dao.insert(tdCompany);
      */
     void insertBatch(Consumer<List<T>> entities);
 ```
-### <a name="17">主键生成</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 主键生成
 
 主键默认情况会被回填，但是 批量insert 的时候，Oracle序列/自增ID是不会回填的
 
-#### <a name="18">Oracle序列</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+#### Oracle序列
 ```
     @Id
     @Column(name = "FD_ID")
@@ -273,21 +187,21 @@ int row = dao.insert(tdCompany);
     private Long   fd_id;
     ```
 
-#### <a name="19">自增Id</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+#### 自增Id
 ```
     @Id
     @Column(name = "FD_ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long   fd_id;
 ```
-#### <a name="20">IdUtils</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+#### IdUtils
 ```
     @Id
     @Column(name = "FD_ID")
     @IdUtil
     private Long   fd_id;
 ```
-### <a name="21">创建时间</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 创建时间
 
 注意点
 
@@ -298,18 +212,18 @@ Insert的时候，@InsertTime插入数据库的时候实际上是 调用CURRENT_
     private Date   fd_createtime;
     ```
 
-## <a name="22">修改</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+## 修改
 
-### <a name="23">普通update</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 普通update
 
    见下面
 
-### <a name="24">批量update见</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 批量update见
 ```
  void updateBatch(List<T> entities);
 ```
 
-### <a name="25">安全的update</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 安全的update
 ```
    //只update部分字段 
   dao.updateDynamic(w->w.setStatus(1),w->w.setId(100))   //update xxx set FD_STATUS=1 where FD_ID=100
@@ -324,7 +238,7 @@ dao.updateNotNull(cp,w->w.setId(100)) // update xxx set FD_NAME='xxxxx' where fd
 dao.updateNotNullById(cp,100) // update xxx set FD_NAME='xxxxx' where fd_id= 100
 dao.updateNotNullWhere(cp,w->$(w.getId(),eq(),1000)) // update xxx set FD_NAME='xxxxx' where fd_id= 100
 ```
-### <a name="26">链式update</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 链式update
 ```
 Dao<TdCompany> companyDao=null;
 Traced<TdCompany> traced = companyDao.findFirstForUpdate(w -> w.setFd_id(100L));
@@ -438,7 +352,7 @@ int row = companyDao.update()
           )).execute();
 ```
 
-### <a name="27">跟踪实体的修改</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 跟踪实体的修改
 
 Traced类提供对象跟踪能力，原理是 一个对象保存两份，一份是未修改之前的，一份是修改之后的， xxxForUpdate返回会直接返回Traced对象，也可以 直接调用 Traced.startTrace(cp);
 ```
@@ -493,7 +407,7 @@ public class Traced<T extends Entity> {
     }
 }
 ```
-### <a name="28">更新时间</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 更新时间
 
 注意点
 
@@ -503,7 +417,7 @@ Insert/Update的时候，@UpdateTime插入/更新数据库的时候实际上是 
     @Column(name = "FD_CREATETIME")
     private Date   fd_updatetime;
 ```
-### <a name="29">部分方法说明</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 部分方法说明
 ```
   //Dao接口  
   int updateTraced(Traced<T> traced, Consumer<T> where);
@@ -570,9 +484,9 @@ Insert/Update的时候，@UpdateTime插入/更新数据库的时候实际上是 
     int execute();
 ```
 
-## <a name="30">删除</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+## 删除
 
-### <a name="31">普通删除</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 普通删除
 ```
 dao.delete(w->{
   w.setId(100);
@@ -582,11 +496,11 @@ dao.delete(w->{
 dao.deleteBy(TdCompany::getId,1000)  delete from xxx where id=100
 dao.deleteById(1000)  delete from xxx where id=100
 ```
-### <a name="32">表达式删除</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 表达式删除
 ```
 dao.deleteWhere(w->$(w.getId(),eq(),1000))  // delete from xx where id=1000
 ```
-### <a name="33">方法说明</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 方法说明
 ```
  int deleteById(Object id);
 
@@ -596,23 +510,23 @@ dao.deleteWhere(w->$(w.getId(),eq(),1000))  // delete from xx where id=1000
 
 <TField> int deleteBy(Function<T, TField> singleField, TField value);
 ```
-## <a name="34">自定义注解</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+## 自定义注解
 
-### <a name="35">内置注解</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 内置注解
 
-#### <a name="36">@IdUtil</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+#### @IdUtil
 
 insert的时候起作用，如果id值不为null，那就调用IdUtils.newId('') 方法生成ID并且回填
 
-#### <a name="37">@InsertTime</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+#### @InsertTime
 
 insert的时候起作用，insert的时候字段值会使用数据库当前时间，但是实际回填的是new Date()
 
-#### <a name="38">@UpdateTime</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+#### @UpdateTime
 
 insert或者update的时候起作用，字段值会使用数据库当前时间，但是实际回填的是new Date()
 
-### <a name="39">创建自定义注解</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 创建自定义注解
 ```
   /**
  * 自定义注解，当前用户名
@@ -634,9 +548,9 @@ public class CurrenUserHandler implements ValueHandler {
     }
 }
 ```
-## <a name="40">查询</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+## 查询
 
-### <a name="41">普通查询</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 普通查询
 ```
      Dao<TdCompany> dao=null;
 //find
@@ -657,7 +571,7 @@ public class CurrenUserHandler implements ValueHandler {
    List<TdCompany> list=dao.findExample(cp,ExamplePolicy.EXCLUDE_NULL_EMPTY);  // where FD_ERPCODE='test' and FD_NAME='   '  //默认不包含null值和 empty字符串
    List<TdCompany> list=dao.findExample(cp,ExamplePolicy.EXCLUDE_NULL_EMPTY_BLANK);  // where FD_ERPCODE='test'  //默认不包含null值和 empty/blank字符串
 ```
-### <a name="42">链式查询</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 链式查询
 ```
  Dao<TdCompany> dao=null;
         Paged<TdCompany> page = companyDao.query()
@@ -698,15 +612,15 @@ public class CurrenUserHandler implements ValueHandler {
 //                .firstForUpdate()                             //返回 第一个 Traced<T> 用于update操作
                 .toPage(3, 3);  //分页查询
 ```
-### <a name="43">Limit查询</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### Limit查询
 
-### <a name="44">分页查询</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 分页查询
 ```
   .toPage(3, 3);  //分页查询
   .toPageCountLess(3,3)  //分页查询，但是不进行count
   .toPageHLLP(3,3)  //分页查询，用 基数算法 估算 行数，仅在海量数据的时候适用，精度差，勿使用
 ```
-### <a name="45">动态Wehere</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 动态Wehere
 
 where添加不允许把字段值设为null，对于大多数数据库来说， where a=null 跟 where a is null 是两个完全不同的概念， 如果将字段值设为null，会导致无法查出任何数据
 
@@ -747,7 +661,7 @@ where添加不允许把字段值设为null，对于大多数数据库来说， w
                 .orderByExpr(w->$(w.getId(),desc(),w.getDel(),asc()))   // order by fd_id desc,fd_del asc
                 .toPage(areaVo.getPage(),areaVo.getPageSize()); //分页sql
 ```
-### <a name="46">Select</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### Select
 
 select只有在 调用部分方法的时候才会生效，比如 first(),toList(),toListForUpdate(),firstForUpdate(), 其他方法，select的字段会被覆盖掉，比如 toDisctinctMap()等
 
@@ -757,7 +671,7 @@ select里边目前只支持select字段，不支持字段加表达式混用，�
                  .selectExclude(w->list(w.getFd_id()))             // select 的时候排除指定字段
                  .selectOneField(TdCompany::getFd_erpcode)    //只select 一个字段
 ```
-### <a name="47">元组</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 元组
 ```
                .toTuple1(w->tuple(w.getFd_id()))  //查一个字段
                .toTuple2(w->tuple(w.getFd_id(),w.getFd_erpcode())) //查询两个字段
@@ -826,13 +740,13 @@ public class Tuple2<T1, T2> extends Tuple {
     }
 }
 ```
-### <a name="48">Distinct</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### Distinct
 ```
 .countDistinct(w->list(w.getFd_id(),w.getFd_erpcode())) // select count(distinct fd_id,fd_erpcode) from xxx
 .distinct(w->list(w.getFd_id(),w.getFd_erpcode())) //select distinct fd_id,fd_erpcode from xxx
 .toDistinctMap(w->tuple(w.getFd_id(),w.getFd_erpcode()))   // 返回map，第一个字段作为key，第二个字段作为value， select distinct fd_id,fd_erpcode from xxx,
 ```
-### <a name="49">聚合函数查询</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 聚合函数查询
 ```
 //                .count()  //计算行数， select count(*) from xxx
 //                .sum(w->tuple(w.getFd_id()))  //sum计算， select sum(fd_id) from xxx
@@ -840,7 +754,7 @@ public class Tuple2<T1, T2> extends Tuple {
 //                .max(w->tuple(w.getFd_id()))  //max计算， select max(fd_id) from xxx
 //                .min(w->tuple(w.getFd_id()))  //min计算， select min(fd_id) from xxx
 ```
-### <a name="50">子查询</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 子查询
 ```
        /**
          * 实际生成的sql:
@@ -864,13 +778,13 @@ public class Tuple2<T1, T2> extends Tuple {
                 .whereExpr(w->$(w.getAirportcode(),in(),airportCodes))
                 .toList(10);
 ```
-### <a name="51">关于findAll</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 关于findAll
 
 目前common-dao是没有findAll方法的，findAll方法是一个非常危险的操作，如果确实需要 查询表所有数据
 
 请使用whereExpr ， dao.whereExpr(w→$(w.getId(),eq(),w.getId())) 或者 dao.whereExpr(w→$(w.getId(),isNotNull()))
 
-### <a name="52">关于where的安全性</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 关于where的安全性
 
 对于动态where,当所有条件都不满足的时候，就会出现where条件为空，而导致查全表的情况
 
@@ -908,9 +822,9 @@ public class Tuple2<T1, T2> extends Tuple {
                 })
  
 ```
-## <a name="53">排序</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+## 排序
 
-### <a name="54">Asc/Desc排序</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### Asc/Desc排序
 ```
 Dao<TdCompany> dao=null;
 
@@ -920,7 +834,7 @@ List<TdCompany> list= dao.query()
    .orderByAsc(w->list(w.getCode()))           // FD_CODE ASC
    .toList();  
 ```
-### <a name="55">表达式排序</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 表达式排序
 ```
 Dao<TdCompany> dao=null;
 
@@ -929,7 +843,7 @@ List<TdCompany> list= dao.query()
    .orderByExpr(w->$(w.getId(),desc(),w.getName(),asc(),w.getDel(), desc() ))  // order by FD_ID DESC, FD_DEL DESC
    .toList();  
 ```
-### <a name="56">map排序</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### map排序
 ```
 companyDao.query()
                 .where(w -> w.setFd_id(companieIds\[0\]))
@@ -937,7 +851,7 @@ companyDao.query()
                     w.put("fd_id", "desc");   //key必须是 java字段名 或者 表列名，必须是实体类的一个字段或注解的列名，其中，字段名区分大小写，表列名不区分大小写
                 })
 ```
-### <a name="57">不安全map排序</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 不安全map排序
 ```
 companyDao.query()
                 .where(w -> w.setFd_id(companieIds\[0\]))
@@ -945,9 +859,9 @@ companyDao.query()
                     w.put("fd_id+1", "desc");   //这个是不安全的，key会作为sql的一部分，调用者需要保证不会被注入
                 })
 ```
-## <a name="58">表达式</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+## 表达式
 
-### <a name="59">一元表达式</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 一元表达式
 
 一元表达式有 ： is null / is not null
 ```
@@ -956,7 +870,7 @@ $(w.getId(),isNull())      //ID IS NULL
 
   ```
 
-### <a name="60">二元表达式</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 二元表达式
 
 二元表达式有 ： 大于/等于/小于/In/Not In...
 ```
@@ -1044,7 +958,7 @@ $(w.getFd_id(),in(),new Long\[\]{1000L,100001L})   //IN
         return BinaryType.Contain;
     }
 ```
-### <a name="61">逻辑表达式</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 逻辑表达式
 
 逻辑表达式有 : AND/OR
 ```
@@ -1055,7 +969,7 @@ UnaryExpr erpCodeIsNotNull = $(w.getFd_erpcode(), isNotNull());
 BinaryExpr phoneStartWith = $(w.getFd_phone(), startWith(), "137");
 $(erpCodeIsNotNull,or(),phoneStartWith)                      // FD_ERPCODE IS NOT NULL OR FD_PHONE LIKE '137%'
 ```
-### <a name="62">数学运算符</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 数学运算符
 
 数学运算符有：加减乘除 , 数学运算符目前仅适用于数字类型的字段，如果用于其他类型上，比如时间类型，会出现不同数据库 时间加减 处理 方法的不一致
 ```
@@ -1085,7 +999,7 @@ dao.findExpr(w->$(w.getFd_id(),eq(), $(w.getFd_id(),add(),1000L)))   // where FD
         return BinaryType.Abs;
     }
 ```
-### <a name="63">聚合函数</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 聚合函数
 
 暂时无法直接使用,请使用Queryable接口
 ```
@@ -1099,7 +1013,7 @@ dao.findExpr(w->$(w.getFd_id(),eq(), $(w.getFd_id(),add(),1000L)))   // where FD
 
     public static MethodCallExpr count();
 ```
-### <a name="64">字符串函数</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 字符串函数
 ```
 dao.findExpr(w->$(lower(w.getFd_phone()),eq(),"12212"))     // WHERE LOWER(FD_PHONE)='12212'        转小写
 dao.findExpr(w->$(replace(  lower(w.getFd_phone()) ,'a' ,'b' ),eq(),"12212"))     // WHERE REPLACE(LOWER(FD_PHONE),'a','b')='12212'        转小写 后替换
@@ -1110,7 +1024,7 @@ dao.findExpr(w->$(replace(  lower(w.getFd_phone()) ,'a' ,'b' ),eq(),"12212"))   
     public static MethodCallExpr concat(String... fields) {}   //字符串连接
     public static MethodCallExpr len(Expr expr) {}      //字符串长度
 ```
-### <a name="65">时间函数</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 时间函数
 
   
 ```
@@ -1129,7 +1043,7 @@ dao.findExpr(w-> $(  w.getUpdateTime()  ,   gt()   ,  currentTimestamp() ))   //
      */
     public static MethodCallExpr currentDateTime() {}   //当前时间
 ```
-### <a name="66">其他非标准函数</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 其他非标准函数
 
 不建议使用，这些函数没有做多数据库适配
 ```
@@ -1138,15 +1052,15 @@ dao.findExpr(w-> $(  call("DECODE",w.getFd_name(),'xiaojun','1','2')  ,   eq()  
 
 public static MethodCallExpr call(String methodName,Object... args);
 ```
-## <a name="67">表达式alias</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+## 表达式alias
 
-### <a name="68">将表达式关联到对象上</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 将表达式关联到对象上
 
 待补充.....
 
-## <a name="69">直接使用表达式对象</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+## 直接使用表达式对象
 
-### <a name="70">表达式类型</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 表达式类型
 ```
 BinaryExpr         //二元表达式, 便捷方法 $binary(1L)
 ConstantExpr   //常量表达式, 便捷方法 $const(1L)
@@ -1173,9 +1087,9 @@ WhereExpr      //where表达式
 ```
   
 
-## <a name="71">适配其他数据库或SQL语法</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+## 适配其他数据库或SQL语法
 
-### <a name="72">基于AnsiSqlVisitor</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 基于AnsiSqlVisitor
 
 AnsiSqlVisitor已经实现了大部分兼容的SQL语法，继承与AnsiSqlVisitor 的只需要适配部分特殊的语法，比如分页/Limit
 ```
@@ -1215,7 +1129,7 @@ public class OracleVisitor extends AnsiSqlVisitor {
 
 }
 ```
-### <a name="73">基于SqlVisitor</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 基于SqlVisitor
 
 SqlVisitor 提供了 sql片段的开闭符号，分隔符，表别名，参数命名 的 一些基础方法
 ```
@@ -1338,7 +1252,7 @@ public class AnsiSqlVisitor extends SqlVisitor {
  //省略N行代码
 }
 ```
-### <a name="74">基于ExprVisitor</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 基于ExprVisitor
 
 只提供了遍历表达式树的能力
 ```
@@ -1347,9 +1261,9 @@ public class AnsiSqlVisitor extends ExprVisitor{
 }
 ```
 
-## <a name="75">适配其他映射框架</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+## 适配其他映射框架
 
-### <a name="76">适配mybaits-plus注解</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 适配mybaits-plus注解
 ```
 @Slf4j
 public class MybaitsPlusEntityMapping<T extends Entity> implements EntityMapping<T> {
@@ -1361,7 +1275,7 @@ public class MybaitsPlusEntityMapping<T extends Entity> implements EntityMapping
 
   ```
 
-### <a name="77">sqlDriverHolder配置spring集成</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### sqlDriverHolder配置spring集成
 ```
 启用common-dao
 
@@ -1369,13 +1283,13 @@ public class MybaitsPlusEntityMapping<T extends Entity> implements EntityMapping
 @EnableCommonDao    //启用CommonDao
 public class SpringBootTestApplication {}
 ```
-### <a name="78">读写分离</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 读写分离
 
-### <a name="79">多数据源</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### 多数据源
 
-## <a name="80">方法说明</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+## 方法说明
 
-### <a name="81">Dao接口</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### Dao接口
 ```
 public interface Dao<T extends Entity> {
 
@@ -1479,7 +1393,7 @@ public interface Dao<T extends Entity> {
 
   ```
 
-### <a name="82">Queryable接口</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### Queryable接口
 ```
 public interface Queryable<T extends Entity> {
 
@@ -1632,7 +1546,7 @@ public interface Queryable<T extends Entity> {
     QueryExpr getQueryExpr();
 }
 ```
-### <a name="83">Updatable接口</a><a style="float:right;text-decoration:none;" href="#index">[Top]</a>
+### Updatable接口
 ```
 public interface Updatable<T extends Entity> {
 
