@@ -214,10 +214,29 @@
          dao.deleteById(1000)  delete from xxx where id=100
          dao.deleteWhere(w->$(w.getId(),eq(),1000))  // delete from xx where id=1000
                        
-       }
-
-                
-    }             
+       }         
+    } 
+    
+    @Data
+    @Table(name = "TD_COMPANY")
+    public class TdCompany  {
+        @Id
+        @Column(name = "FD_ID")
+        @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "SEQ_TD_COMPANY")
+        @SequenceGenerator(name = "SEQ_TD_COMPANY",sequenceName = "SEQ_TEST")
+        private Long   fd_id;
+        @Column(name = "FD_PHONE")
+        private String fd_phone;
+        @Column(name = "FD_ERPCODE")
+        private String fd_erpcode;
+        @Column(name = "FD_DEL")
+        private Integer fd_del;
+         @InsertTime
+         @Column(name = "FD_CREATETIME")
+         private Date   fd_createtime;
+         @Column(name = "FD_NAME")
+         private String fd_name;
+    }            
 ```
 
 
