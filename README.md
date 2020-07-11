@@ -174,7 +174,23 @@
                          return where;
                      })
                      .orderByExpr(w->$(w.getId(),desc(),w.getDel(),asc()))   // order by fd_id desc,fd_del asc
-                     .toPage(areaVo.getPage(),areaVo.getPageSize()); //分页sql    
+                     .toPage(areaVo.getPage(),areaVo.getPageSize()); //分页sql   
+                      
+           areaDao.query()
+                          .where(w->{
+                              if (areaVo.getId()!=null){
+                                  w.setId(areaVo.getId()); // where fd_id =?
+                              }
+                              if (StringUtils.isNotBlank(areaVo.getCode())){
+                                  w.setCode(areaVo.getCode()); // where fd_id =?
+                              }
+                          })
+                          .whereNotBlank(areaVo.getCodeLike(),w->$(w.getCode(),like(),"%"+areaVo.getCodeLike()+"%"))  // fd_code like ?
+                          .whereNotBlank(areaVo.getNameLike(),w->$(w.getName(),like(),"%"+areaVo.getNameLike()+"%")) //fd_name like ?
+                          .whereNotNull(areaVo.getIdIn(),w->$(w.getId(),in(),areaVo.getIdIn())) // fd_id in (????)
+                          .orderByExpr(w->$(w.getId(),desc(),w.getDel(),asc()))   // order by fd_id desc,fd_del asc
+                          .toPage(areaVo.getPage(),areaVo.getPageSize()); //分页sql
+          
                      
           // insert
           TdCompany tdCompany = new TdCompany();
